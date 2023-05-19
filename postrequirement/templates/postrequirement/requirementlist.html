@@ -1,0 +1,15 @@
+{% extends 'postrequirement/requirement.html' %}
+
+{% block listOfRequirement %}
+<div class="container req-list">
+    {% if requirements|length != 0 %}
+    <h2>Requirement</h2>
+    <!-- <ul> -->
+        {% for requirement in requirements %}
+            <li>{{requirement.requirement_text}}</li>
+        <!-- <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum alias rem</li> -->
+        {% endfor %}
+    <!-- </ul> -->
+    {% endif %}
+</div>
+{% endblock %}

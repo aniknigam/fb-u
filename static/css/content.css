@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    width: 90%;
+    margin: auto;
+    padding: 50px 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+#containerClothing,
+#containerAccessories {
+    display: grid;
+    grid-gap: 70px 20px;
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.s {
+    height: 18em;
+    padding: 15px;
+    width: auto;
+    border-radius: 25px;
+}
+
+@media (min-width: 300px) and (max-width: 480px) {
+    .s {
+        height: 7em;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .s {
+        height: 10em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1020px) {
+    .s {
+        height: 13em;
+    }
+}
+.m-button{
+    margin-left: 15px;
+}
+.buy-btn{
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+.m-card:hover .card{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.196);
+    transform: translateY(-2px);
+}
+ 
+  /* .card:hover .card-img-top {
+    filter: brightness(70%);
+  }
+   */
+  .card:hover .card-title {
+    color: #007bff;
+  }
+  
+.card:hover .card-text {
+    color: #6c757d; 
+}
+
+.card:hover .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.card:hover .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+.card-img-top {
+    width: 100%;          
+    height: 300px;     
+    object-fit: contain;
+}
+
+.s-icon {
+    font-size: 15px;
+}
+
+.price{
+    font-size: 1em;
+}
+.feat{
+    font-size: 10px;
+}
+.description{
+    height: 3em;
+    overflow: hidden;
+}
+  
+@media (min-width: 300px) and (max-width: 480px) {
+    .m-card {
+        padding-top: 10px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .m-card {
+        padding-top: 10px;
+    }
+}
+
+
+#box {
+    width: 100%;
+    background-color: white;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px 2px rgb(219, 219, 219);
+}
+
+#box:hover {
+    box-shadow: 1px 6px 3px 0 rgb(185, 185, 185);
+}
+
+#containerClothing img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#containerAccessories img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#details {
+    padding: 0 15px;
+    text-transform: capitalize;
+}
+
+#box a {
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h4 {
+    font-weight: 100;
+}
+
+h2 {
+    color: rgb(3, 94, 94);
+}
+
+/* ----------------------------- MEDIA QUERY --------------------------- */
+
+@media(max-width: 1070px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    #containerClothing,
+    #containerAccessories {
+        width: 95%;
+        grid-gap: 10px;
+    }
+}
+
+@media(max-width: 850px) {
+    h1 {
+        width: 80%;
+    }
+
+    #containerClothing,
+    #containerAccessories {
+        display: grid;
+        grid-gap: 70px 20px;
+        grid-template-columns: repeat(3, 1fr);
+        width: 80%;
+    }
+}
+
+@media(max-width: 650px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h1 {
+        width: 90%;
+    }
+
+    #containerClothing,
+    #containerAccessories {
+        width: 90%;
+    }
+}
+
+@media(max-width: 600px) {
+    h1 {
+        width: 70%;
+    }
+
+    #containerClothing,
+    #containerAccessories {
+        width: 70%;
+    }
+}
+
+@media(max-width: 505px) {
+    h1 {
+        width: 80%;
+    }
+
+    #containerClothing,
+    #containerAccessories {
+        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+#sticky-icon {
+    position: fixed;
+    bottom: 20px; /* Adjust the positioning as desired */
+    right: 20px; /* Adjust the positioning as desired */
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Ensure the icon is above other page elements */
+  }
+  
+  #sticky-icon img {
+    width: 60px; /* Adjust the size as desired */
+    height: 60px; /* Adjust the size as desired */
+  }
+  
