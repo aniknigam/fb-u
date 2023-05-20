@@ -43,19 +43,40 @@ def search(request):
         
         return render(request, 'search.html', params)
 
-        
-        
-        # query = request.POST.get('query')
-        # # print(query)
-        # products = Product.objects.filter(product_name__icontains=query)
-        # # print(products)
-        # params = {'product': products}
-        # return render(request, 'shop/search.html', params)
     else:
         return render(request, 'search.html')
+def allproducts(request):
+    allProds = []
+    prod = Product.objects.all()
+    ads = Advertisement.objects.all()
+    # print(ads)
     
+    featured = Product.objects.filter(featured_product='Yes')
+    
+    # prod = Product.objects.filter(category=cat)
+    n = len(prod)
+    nSlides = n // 4 + ceil((n / 4) - (n // 4))
+    allProds.append([prod, range(0, nSlides), nSlides])
+    
+    params = {'allProds':allProds, 'featured':featured, 'ads':ads}
+    return render(request, 'allProducts.html', params)
+    
+def productView(request, myid):
+    product=Product.objects.filter(id=myid)
+    print(product)
+    return render(request, "prodView.html", {'product':product[0]})
+   
 def about(request):
     return render(request, 'about.html')
 
 def contact(request):
     return render(request, 'contact.html')
+
+def privacyPolicy(request):
+    return render(request, 'privacyPolicy.html')
+
+def termsAndConditions(request):
+    return render(request, 'termsCondition.html')
+
+def returnPolicy(request):
+    return render(request, 'returns.html')

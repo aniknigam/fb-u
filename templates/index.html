@@ -42,8 +42,6 @@ FabricBecho - Home
             height: 10em;
         }
     }
-
-
     .dropdown-content {
         display: none;
         position: absolute;
@@ -51,6 +49,12 @@ FabricBecho - Home
         min-width: 50px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
+    }
+    
+    .view-btn, .buy-btn{
+        text-align: center;
+        align-items: center;
+        width: 49%;
     }
 </style>
 {% endblock %}
@@ -67,9 +71,6 @@ FabricBecho - Home
             {% for i in ads|slice:"0:"%}
             <div id="slidingImage"> <img src="/media/{{i.image}}" alt="image1"> </div>
             {% endfor %}
-            <!-- <div id="slidingImage"> <img src="/static/img/img2.png" alt="image2"> </div>
-            <div id="slidingImage"> <img src="/static/img/img3.png" alt="image3"> </div>
-            <div id="slidingImage"> <img src="/static/img/img4.png" alt="image3"> </div> -->
         </div>
     </section>
 </div>
@@ -81,13 +82,13 @@ FabricBecho - Home
             <div class="row">
                 <div class="col-6 ">
                     <img src="/static/img/sell.jpeg" alt="" class="img-responsive center-block d-block s">
-                    <a aria-label="Chat on WhatsApp" href="https://wa.me/916370796484?text=I want to advertise"
+                    <a aria-label="Chat on WhatsApp" href="https://wa.me/919717175438?text=I want to advertise"
                         class="btn btn-outline-secondary m-button" target="_blank">Sell Product</a>
                 </div>
                 <div class="col-6">
                     <img src="/static/img/advertise.jpg" alt="" class="img-responsive center-block d-block s">
 
-                    <a aria-label="Chat on WhatsApp" href="https://wa.me/916370796484?text=I want to advertise"
+                    <a aria-label="Chat on WhatsApp" href="https://wa.me/919717175438?text=I want to advertise"
                         class="btn btn-outline-secondary m-button" target="_blank">Advertise Here </a>
                 </div>
             </div>
@@ -115,6 +116,9 @@ FabricBecho - Home
                             <a target="_blank"
                                 href="https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho"
                                 class=" btn btn-outline-secondary buy-btn">Buy</a>
+                            <a href="/products/{{i.id}}">
+                                <button id="qv{{i.id}}" class="btn btn-outline-secondary view-btn">View</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -161,7 +165,9 @@ FabricBecho - Home
                         <a target="_blank"
                             href="https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho"
                             class=" btn btn-outline-secondary buy-btn">Buy</a>
-
+                        <a href="/products/{{i.id}}">
+                            <button id="qv{{i.id}}" class="btn btn-outline-secondary view-btn">View</button>
+                        </a>
                     </div>
                 </div>
             </div>

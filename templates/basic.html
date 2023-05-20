@@ -65,6 +65,44 @@
           .dropdown:hover .dropdown-content {
             display: block;
           }
+          #collection
+          {
+            font-weight: bold;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+          /* .header-desc{
+              font-size: 16px;
+          } */
+          #collection a
+          {
+            /*font-size: 15px;*/
+            margin-right: .5em ;
+            text-decoration: none;
+            color: rgb(29, 29, 29);
+          }
+          .search
+          {
+            padding: 10px;
+            /* color: gray; */
+            color: rgb(29, 29, 29);
+            min-width: 25px;
+            /* text-align: center; */
+            /* position: absolute; */
+            }
+          #input 
+          {
+            width: 30em;
+            height: 3em;
+            padding: 2px 50px;
+            background-color: rgb(241, 241, 241);
+            border: none;
+            border-radius: 5px;
+          }
+          footer a{
+            text-decoration: none;
+            color: aqua;
+          }
     </style>
     
     {% block stylesheet %} {% endblock %}
@@ -90,6 +128,7 @@
                     <div id="collection">
                         <div id="clothing"><a href="{% url 'About' %}"> About  </a></div>
                         <div id="accessories"><a href="{% url 'Contact' %}"> Contact Us </a></div>
+                        <div id="accessories"><a href="{% url 'AllProducts' %}"> Products </a></div>
                     </div>
                     {% endif %}
 
@@ -143,21 +182,21 @@
                     
                     <div id="webFooter">
                         <h3>INFORMATION</h3>
-                        <p style="padding-top: 10px;"> About Us</p>
-                        <p> Contact Us </p>
-                        <p> Home</p>
+                        <a href="{% url 'About' %}"><p style="padding-top: 10px;"> About Us </p></a>
+                        <a href="{% url 'Contact' %}"><p> Contact Us </p></a>
+                        <a href="{% url 'Home' %}"><p> Home </p></a>
 
                     </div>
                     <div id="webFooter">
-                        <h3>oUR SERVICE </h3>
-                        <p> Buy Product</p>
-                        <p> Sell Product </p>
+                        <h3>OUR SERVICE </h3>
+                        <a href="{% url 'AllProducts' %}"><p> Buy Product</p></a>
+                        <a target="_blank" href="https://wa.me/919717175438?text=I want to register as seller"><p> Sell Product </p></a>
                     </div>
                     <div id="webFooter">
                         <h3> HELP </h3>
-                        <p> PRIVACY POLICY</p>
-                        <p> TERMS AND CONDITIONS</p>
-                        <p> REFUND/RETURN POLICY </p>
+                        <a href="{% url 'PrivacyPolicy' %}"><p> PRIVACY POLICY</p></a>
+                        <a href="{% url 'TermsAndConditions' %}"><p> TERMS AND CONDITIONS</p></a>
+                        <a href="{% url 'ReturnPolicy' %}"><p> REFUND/RETURN POLICY </p></a>
                     </div>
                 </div>
                 <div id="credit">
@@ -167,34 +206,7 @@
         </footer>
     </div>
     {% block script %} 
-    <!-- <script>
-        document.getElementById('messageForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
     
-            // Get form data
-            var form = event.target;
-            var name = form.elements.name.value;
-            var email = form.elements.email.value;
-            var message = form.elements.message.value;
-    
-            // Prepare the WhatsApp message
-            var whatsappMessage = "Name: " + name + "%0A" +
-                                  "Email: " + email + "%0A" +
-                                  "Message: " + message;
-    
-            // Replace the "PHONE_NUMBER" with the specific contact's phone number (with the country code)
-            var phoneNumber = "+917081700024";
-    
-            // Construct the WhatsApp URL with the phone number and the message
-            var whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(whatsappMessage);
-    
-            // Open WhatsApp in a new window
-            window.open(whatsappURL);
-    
-            // Reset the form
-            form.reset();
-        });
-    </script> -->
     {% endblock %}
 </body>
 

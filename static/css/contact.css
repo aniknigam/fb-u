@@ -75,17 +75,8 @@ border-radius: 10px;
 border: 1px solid black;
 
 }
-@media only screen and (max-width: 600px) {
-    .contactform {
-        width: 111%;
-    }
-  }
-a{
-    text-decoration: none;
-    text-decoration-line: none;
-    color: #333;
-    
-}
+
+
 .contactform h2{
     font-size: 30px;
     font-weight: 500;
