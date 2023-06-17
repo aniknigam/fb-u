@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from dashboard.models import Product
 from advertisement.models import Advertisement
+from featured_seller.models import FeaturedSeller
 from math import ceil
 
 def index(request):
     allProds = []
     prod = Product.objects.all()
     ads = Advertisement.objects.all()
+    featured_seller = FeaturedSeller.objects.all()
     # print(ads)
     
     featured = Product.objects.filter(featured_product='Yes')
@@ -16,7 +18,7 @@ def index(request):
     nSlides = n // 4 + ceil((n / 4) - (n // 4))
     allProds.append([prod, range(0, nSlides), nSlides])
     
-    params = {'allProds':allProds, 'featured':featured, 'ads':ads}
+    params = {'allProds':allProds, 'featured':featured, 'ads':ads, 'fs':featured_seller}
     return render(request, 'index.html', params)
 
 def searchMatch(query, item):
@@ -26,6 +28,8 @@ def searchMatch(query, item):
         return False
  
 def search(request):
+    ads = Advertisement.objects.all()
+    featured_seller = FeaturedSeller.objects.all()
     if request.method == 'POST':
         searched = request.POST['search']
         print(searched)
@@ -39,7 +43,7 @@ def search(request):
         
         allProds.append([prod, range(0, nSlides), nSlides])
     
-        params = {'allProds':allProds}
+        params = {'allProds':allProds, 'ads':ads, 'fs':featured_seller}
         
         return render(request, 'search.html', params)
 
@@ -80,3 +84,7 @@ def termsAndConditions(request):
 
 def returnPolicy(request):
     return render(request, 'returns.html')
+
+def quote(request, myid):
+    product=Product.objects.filter(id=myid)
+    return render(request, "quote.html", {'product':product[0]})

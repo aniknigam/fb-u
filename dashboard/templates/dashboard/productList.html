@@ -147,16 +147,6 @@
         <h2 class="py-3">Product List</h2>
         <div class="inner">
             <img src="/static/img/fabric-logo.jpg" alt="">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="row py-2">
-                    <label for="sellerphone" class="col-6"> Phone Number:</label>
-                    <input type="tel" id="sellerphone" name="sellerphone" placeholder="91XXXXXXXX" class="col-6">
-                </div>
-                
-                    <button class="btn btn-outline-secondary " type="submit">View Products</button>
-                </div>
-            </form>
         </div>
     </div>
 

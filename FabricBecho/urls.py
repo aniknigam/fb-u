@@ -34,6 +34,7 @@ urlpatterns = [
     path('member/', include('member.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('requirements/', include('postrequirement.urls')),
+    path('products/quote/<int:myid>',views.quote, name='Quote'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Configure Admin Titles

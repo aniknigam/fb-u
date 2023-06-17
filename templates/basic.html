@@ -112,60 +112,70 @@
 <body>
     <!-- HEADER -->
     <div id="1">
-        <header>
-            <section>
-                
-                <div id="container">
-                    
-                   <div id="shopName"><a href="{% url 'Home' %}"> <img src="/static/img/fabric-logo.jpg" alt="logo"  class ="header-logo"> </a></div>
-                   
-                   {% if user.is_authenticated %}
-                   <div id="collection">
-                        <div class="mx-2" id="clothing"><a href="{% url 'Dashboard' %}"> Add items  </a></div>
-                        <div class="mx-2" id="accessories"><a href="{% url 'Product' %}"> View Products </a></div>
-                   </div>
-                   {% else %}
-                    <div id="collection">
-                        <div id="clothing"><a href="{% url 'About' %}"> About  </a></div>
-                        <div id="accessories"><a href="{% url 'Contact' %}"> Contact</a></div>
-                        <div id="accessories"><a href="{% url 'AllProducts' %}"> Products </a></div>
-                    </div>
-                    {% endif %}
+      <header>
+          <section>
+              
+              <div id="container">
+                  
+                  <div id="shopName">
+                      <a href="{% url 'Home' %}"> 
+                          <img src="/static/img/fabric-logo.jpg" alt="logo"  class ="header-logo">
+                      </a>
+                  </div>
+                 
+                 {% if user.is_authenticated %}
+                 <div id="collection">
+                      <div class="mx-2" id="clothing"><a href="{% url 'Dashboard' %}"> Add items  </a></div>
+                      <div class="mx-2" id="accessories"><a href="{% url 'Product' %}"> View Products </a></div>
+                 </div>
+                 {% else %}
+                  <div id="collection">
+                      <div id="clothing"><a href="{% url 'About' %}"> About  </a></div>
+                      <div id="accessories"><a href="{% url 'Contact' %}"> Contact Us </a></div>
+                      <div id="accessories"><a href="{% url 'AllProducts' %}"> Products </a></div>
+                  </div>
+                  {% endif %}
 
-                    
-                    <div id="search">
-                        <form method="post" action="{% url 'Search' %}">
-                        {% csrf_token %}
-                        <i class="fas fa-search search"></i>
-                        <input type="text" id="input" name="search" placeholder="Buy and Sell Product Easily">
-                        <button type="submit" class="btn btn-secondary">Search</button>
-                        </form>
-                    </div>
+                  
+                  <div id="search">
+                      <form method="post" action="{% url 'Search' %}">
+                      {% csrf_token %}
+                      <i class="fas fa-search search"></i>
+                      <input type="text" id="input" name="search" placeholder="Buy and Sell Product Easily">
+                      <button type="submit" class="btn btn-secondary">Search</button>
+                      </form>
+                  </div>
 
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'logoutUser' %}">
-                        <button class="dropbtn">
-                            <i class="fa fa-user"></i> LogOut
-                        </button>
-                    </a>
-                    {% else %}
-                    <div class="dropdown">
-                        <button class="dropbtn">
-                          <i class="fa fa-user"></i> Login
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                          <a href="{% url 'SellerLogin' %}">Seller</a>
-                          <a href="/admin/">Admin</a>
-                        </div>
-                    </div>
-                    {% endif %}
-                    
-                </div>
-        
-            </section>
-        </header>
-    </div>
+                  <a href="{% url 'SellerRegister' %}">
+                      <button class="dropbtn">
+                          <i class="fa fa-user"></i> SignUp
+                      </button>
+                  </a>
+
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'logoutUser' %}">
+                      <button class="dropbtn">
+                          <i class="fa fa-user"></i> LogOut
+                      </button>
+                  </a>
+                  {% else %}
+                  <div class="dropdown">
+                      <button class="dropbtn">
+                        <i class="fa fa-user"></i> Login
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'SellerLogin' %}">Seller</a>
+                        <a href="/admin/">Admin</a>
+                      </div>
+                  </div>
+                  {% endif %}
+                  
+              </div>
+      
+          </section>
+      </header>
+  </div>
     
 
 

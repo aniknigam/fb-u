@@ -56,6 +56,18 @@ FabricBecho - Home
         align-items: center;
         width: 49%;
     }
+    .f-banner{
+        width: 100%;
+        height: 20em;
+        text-align: center;
+        align-content: center;
+    }
+    .three-b{
+        width: 100%;
+        text-align: center;
+        align-content: center;
+        margin: 0  auto;
+    }
 </style>
 {% endblock %}
 
@@ -97,7 +109,7 @@ FabricBecho - Home
 
     <div>
         {% if featured|length != 0 %}
-        <h1 style="text-decoration: underline;">Featured Product on Fabric Becho</h1>
+        <h1 style="text-decoration: underline;" class="three-b">Featured Product</h1>
         <div class="container">
             <div class="row">
                 {% for i in featured|slice:"0:"%}
@@ -124,6 +136,7 @@ FabricBecho - Home
                 </div>
                 {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
             </div>
+           
             <div class="row py-5">
                 {% endif %}
 
@@ -132,22 +145,14 @@ FabricBecho - Home
             {% endif %}
         </div>
     </div>
-
+    <div class="container py-2 my-2">
+        
+        <img src="/static/img/poster.png" alt="" class="f-banner">
+      </div>
     {% for product, range, nSlides in allProds %}
-    <h1 style="text-decoration: underline;">Other Product</h1>
+    <h1 style="text-decoration: underline;" class="three-b">Other Product</h1>
     <div class="container">
         <div class="row">
-            <!-- <div class="col-md-3 outer-box">
-                    <div class="card inner-box">
-                        <img src="/static/img/fabric.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title"> Fabric</h5>
-                            <h5 class="card-title">₹1384</h5>
-                            <a href="" class=" btn btn-outline-secondary  buy-btn">Buy</a>
-                        </div>
-                    </div>
-                </div> -->
-
             {% for i in product|slice:"0:"%}
             <div class="col-md-3 m-card">
                 <div class="card">
@@ -161,7 +166,6 @@ FabricBecho - Home
                         </h5>
                         <h5 class="card-title price">₹{{i.price}}</h5>
                         <p class="card-text description">{{i.desc}}</p>
-                        <!-- https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho -->
                         <a target="_blank"
                             href="https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho"
                             class=" btn btn-outline-secondary buy-btn">Buy</a>
@@ -182,7 +186,12 @@ FabricBecho - Home
     </div>
 
 </div>
-
+<div class="container row my-3 three-b">
+    <h1 style="text-decoration: underline;">Featured Sellers</h1>
+    {% for i in fs|slice:"0:"%}
+    <div class="col-4"> <img src="/media/{{i.image}}" alt="" class="f-banner"></div>
+    {% endfor %}
+</div>
 </section>
 
 </div>

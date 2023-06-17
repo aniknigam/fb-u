@@ -14,18 +14,17 @@
         {
             margin: 0;
         }
-        #containerSlider
-        {
+        #containerSlider {
             margin: auto;
             width: 90%;
             text-align: center;
             padding-top: 20px;
             box-sizing: border-box;
         }
-        #containerSlider img
-        {
+    
+        #containerSlider img {
             width: 100%;
-            height: 140%;
+            height: 20em;
             text-align: center;
             align-content: center;
         }
@@ -43,6 +42,23 @@
                 height: 10em;
             }
         }
+        .view-btn, .buy-btn{
+            text-align: center;
+            align-items: center;
+            width: 49%;
+        }
+        .f-banner{
+            width: 100%;
+            height: 20em;
+            text-align: center;
+            align-content: center;
+        }
+        .three-b{
+            width: 100%;
+            text-align: center;
+            align-content: center;
+            margin: 0  auto;
+        }
     </style>
 {% endblock %}
 
@@ -55,11 +71,11 @@
 <div id="2">
     <section>
         <div id="containerSlider">
-            <div id="slidingImage"> <img src="/static/img/img1.png" alt="image1"> </div>
-            <div id="slidingImage"> <img src="/static/img/img2.png" alt="image2"> </div>
-            <div id="slidingImage"> <img src="/static/img/img3.png" alt="image3"> </div>
-            <div id="slidingImage"> <img src="/static/img/img4.png" alt="image3"> </div>
-    </section>    
+            {% for i in ads|slice:"0:"%}
+            <div id="slidingImage"> <img src="/media/{{i.image}}" alt="image1"> </div>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 
 <!-- CONTENT SECTION -->
@@ -98,8 +114,12 @@
                             </h5>
                             <h5 class="card-title price">₹{{i.price}}</h5>
                             <p class="card-text description">{{i.desc}}</p>
-                            <!-- https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho -->
-                            <a target="_blank" href="https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho" class=" btn btn-outline-secondary buy-btn">Buy</a>
+                            <a target="_blank"
+                                href="https://wa.me/91{{i.seller_phone}}?text=I'm%20interested%20in%20purchasing%20{{i.product_name}}%20listed%20on%20FabricBecho"
+                                class=" btn btn-outline-secondary buy-btn">Buy</a>
+                            <a href="/products/{{i.id}}">
+                                <button id="qv{{i.id}}" class="btn btn-outline-secondary view-btn">View</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +133,12 @@
             </div>
     
         </div>
-    
+        <div class="container row my-3 three-b">
+            <h1 style="text-decoration: underline;">Featured Sellers</h1>
+            {% for i in fs|slice:"0:"%}
+            <div class="col-4"> <img src="/media/{{i.image}}" alt="" class="f-banner"></div>
+            {% endfor %}
+        </div>
     </section>
 
 </div>
